@@ -12,7 +12,7 @@ const NewsLetter = () => {
               <input
                 type="search"
                 className="form-control"
-                placeholder={``}
+                placeholder={`user@gmail.com`}
                 aria-label="Search"
                 aria-describedby="search-addon"
               />
