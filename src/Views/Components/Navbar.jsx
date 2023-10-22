@@ -1,4 +1,4 @@
-import { BiSearch } from "react-icons/bi";
+import { BiMenu, BiSearch } from "react-icons/bi";
 import { MdShoppingCart } from "react-icons/md";
 import { BsPersonFill } from "react-icons/bs";
 import { BsSuitHeartFill } from "react-icons/bs";
@@ -44,7 +44,7 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <BiMenu size={"22px"} />
           </button>
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul
