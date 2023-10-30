@@ -24,7 +24,7 @@ const Card = ({ alt, addToCart, addToFavourites, data }) => {
             </span>
           </p>
           <p className="card-text card-discount">Save {data?.discount}%</p>
-          <button className="cstm-btn" onClick={() => addToCart(data)}>
+          <button className="cstm-btn mt-2" onClick={() => addToCart(data)}>
             Add to Cart
           </button>
         </div>

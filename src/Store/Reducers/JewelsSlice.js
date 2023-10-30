@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
   loading: false,
+  CRUDLoading: false,
   collectionList: [],
   reviewsList: [],
   cart: [],
@@ -16,6 +17,9 @@ const jewelsSlice = createSlice({
   reducers: {
     setLoading: (state, action) => {
       state.loading = action.payload;
+    },
+    setCRUDLoading: (state, action) => {
+      state.CRUDLoading = action.payload;
     },
     setCollectionList: (state, action) => {
       state.collectionList = action.payload;
@@ -41,6 +45,7 @@ const jewelsSlice = createSlice({
 export const {
   setLoading,
   setCollectionList,
+  setCRUDLoading,
   setCart,
   setCategories,
   setReviews,

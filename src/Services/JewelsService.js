@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import { renderMsg } from "../Helper/Common";
 import {
+  setCRUDLoading,
   setCart,
   setCategories,
   setCollectionList,
@@ -43,7 +44,7 @@ export const getCollectionList = () => async (dispatch) => {
  */
 export const getCart = () => async (dispatch) => {
   try {
-    dispatch(setLoading(true));
+    dispatch(setCRUDLoading(true));
     const collectionsRef = collection(db, "cart");
     const docSnap = await getDocs(collectionsRef);
     let list = [];
@@ -60,7 +61,7 @@ export const getCart = () => async (dispatch) => {
     toast.error(renderMsg(e));
     return false;
   } finally {
-    dispatch(setLoading(false));
+    dispatch(setCRUDLoading(false));
   }
 };
 
@@ -146,7 +147,7 @@ export const getCustomerChoices = () => async (dispatch) => {
  */
 export const getFavouriteList = () => async (dispatch) => {
   try {
-    dispatch(setLoading(true));
+    dispatch(setCRUDLoading(true));
     const collectionsRef = collection(db, "favourites");
     const docSnap = await getDocs(collectionsRef);
     let list = [];
@@ -163,7 +164,7 @@ export const getFavouriteList = () => async (dispatch) => {
     toast.error(renderMsg(e));
     return false;
   } finally {
-    dispatch(setLoading(false));
+    dispatch(setCRUDLoading(false));
   }
 };
 
@@ -173,7 +174,7 @@ export const getFavouriteList = () => async (dispatch) => {
 export const addItemToCart = (payload) => async (dispatch) => {
   try {
     if (payload) {
-      dispatch(setLoading(true));
+      dispatch(setCRUDLoading(true));
       const res = await addDoc(collection(db, "cart"), payload);
       if (res) {
         toast.success(`Product added to cart`);
@@ -185,7 +186,7 @@ export const addItemToCart = (payload) => async (dispatch) => {
     toast.error(renderMsg(e));
     return false;
   } finally {
-    dispatch(setLoading(false));
+    dispatch(setCRUDLoading(false));
   }
 };
 
@@ -195,7 +196,7 @@ export const addItemToCart = (payload) => async (dispatch) => {
 export const addItemToFavourites = (payload) => async (dispatch) => {
   try {
     if (payload) {
-      dispatch(setLoading(true));
+      dispatch(setCRUDLoading(true));
       const res = await addDoc(collection(db, "favourites"), payload);
       if (res) {
         toast.success(`Product added to Favourites`);
@@ -207,6 +208,6 @@ export const addItemToFavourites = (payload) => async (dispatch) => {
     toast.error(renderMsg(e));
     return false;
   } finally {
-    dispatch(setLoading(false));
+    dispatch(setCRUDLoading(false));
   }
 };
